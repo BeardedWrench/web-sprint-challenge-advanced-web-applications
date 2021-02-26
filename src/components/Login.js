@@ -32,30 +32,9 @@ const Login = () => {
         history.push('/bubble')
       })
       .catch( err => {
-        setError({ error: err.response.data.error } );
+        setError({ error: 'Username or Password not valid.' } );
       })
   }
-
-  useEffect(()=>{
-    axios
-      .delete(`http://localhost:5000/api/colors/1`, {
-        headers:{
-          'authorization': "ahuBHejkJJiMDhmODZhZi0zaeLTQ4ZfeaseOGZgesai1jZWYgrTA07i73Gebhu98"
-        }
-      })
-      .then(res=>{
-        axios.get(`http://localhost:5000/api/colors`, {
-          headers:{
-            'authorization': ""
-          }
-        })
-        .then(res=> {
-          console.log(res);
-        });
-        console.log(res);
-      })
-  });
-
   return (
     <>
       <h1>
